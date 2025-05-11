@@ -24,24 +24,39 @@ function App() {
   ];
 
   const [newArticle, setNewArtcle] = useState("");
+  const [newComponent, setNewComponent] = useState(articoli)
+
+  const addArticolo = (e) => {
+    e.preventDefault();
+
+    const nuovoArticolo = {
+      id: newComponent.length + 1,
+      titolo: newArticle,
+      autore: "Autore Sconosciuto",
+      data: "11/05/2025"
+    };
+
+    setNewComponent([...newComponent, nuovoArticolo]);
+    setNewArtcle("");
+  };
+
   return (
     <>
       <div className="container">
         <h1>REACT FORM</h1>
         <ul className="list-group mt-4">
-          {articoli.map((articolo) => {
+          {newComponent.map((articolo) => {
             return <li key={articolo.id} className='list-group-item'>
               {articolo.titolo}
             </li>
           })}
         </ul>
-        <form className='d-flex mt-4'>
+        <form onSubmit={addArticolo} className='d-flex mt-4'>
           <div className="input-group">
             <input value={newArticle} onChange={(e) => { setNewArtcle(e.target.value) }} type="text" className='form-control'
               placeholder='Nuovo Titolo' />
           </div>
           <button className="btn btn-primary">Aggiungi</button>
-          {newArticle}
         </form>
       </div>
     </>
