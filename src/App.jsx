@@ -23,6 +23,7 @@ function App() {
     }
   ];
 
+  const [newArticle, setNewArtcle] = useState("");
   return (
     <>
       <div className="container">
@@ -36,9 +37,11 @@ function App() {
         </ul>
         <form className='d-flex mt-4'>
           <div className="input-group">
-            <input type="text" className='form-control' placeholder='Nuovo Titolo' />
+            <input value={newArticle} onChange={(e) => { setNewArtcle(e.target.value) }} type="text" className='form-control'
+              placeholder='Nuovo Titolo' />
           </div>
           <button className="btn btn-primary">Aggiungi</button>
+          {newArticle}
         </form>
       </div>
     </>
