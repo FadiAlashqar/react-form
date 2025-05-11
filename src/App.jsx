@@ -25,7 +25,16 @@ function App() {
 
   return (
     <>
-      <h1>FORM REACT</h1>
+      <div className="container">
+        <h1>REACT FORM</h1>
+        <ul className="list-group mt-4">
+          {articoli.map((articolo) => {
+            return <li key={articolo.id} className='list-group-item'>
+              {articolo.titolo}
+            </li>
+          })}
+        </ul>
+      </div>
     </>
   )
 }
