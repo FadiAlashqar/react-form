@@ -34,6 +34,12 @@ function App() {
             </li>
           })}
         </ul>
+        <form className='d-flex mt-4'>
+          <div className="input-group">
+            <input type="text" className='form-control' placeholder='Nuovo Titolo' />
+          </div>
+          <button className="btn btn-primary">Aggiungi</button>
+        </form>
       </div>
     </>
   )
